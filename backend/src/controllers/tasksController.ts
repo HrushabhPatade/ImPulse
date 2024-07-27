@@ -10,6 +10,9 @@ export const createTasks = async (
 
     console.log("Body : ", req.body);
     const { title, desc, status } = req.body;
+    if (!title || !desc || !status) {
+      return res.status(500).send({ message: "All fields are compulsory" });
+    }
     const taskFound = await tasksModel.find({ title });
     if (taskFound.length > 0) {
       res.status(409);
@@ -45,7 +48,7 @@ export const getAllTasks = async (
 
 export const getTask = async (req: express.Request, res: express.Response) => {
   try {
-    console.log("DELETE method called to delete task");
+    console.log("GET method called for a task");
 
     const getTaskInfo = await tasksModel.findOne({
       _id: req.params.id,
