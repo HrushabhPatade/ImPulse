@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./config/dbConfig";
 import e from "cors";
+import tasksRouters from "./routes/tasksRoutes";
 
 dotenv.config();
 connectDb();
@@ -19,7 +20,7 @@ app.use(
   })
 );
 
-app.use("/api/");
+app.use("/api/", tasksRouters);
 
 app.listen(port, () => {
   console.log(`Server started at ${port}`);
