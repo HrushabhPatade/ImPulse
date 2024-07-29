@@ -1,11 +1,8 @@
-
-
 import React from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { ToggleFormProps } from "../Interface/types";
-
-
+import { Link } from "react-router-dom";
 
 const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
   const tasks = [
@@ -17,18 +14,18 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
   return (
     <div id="maincontent">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold mb-4">Tasks</h2>
+        <h2 className="text-2xl font-bold mb-4 text-white">Tasks</h2>
         <button
           type="button"
           onClick={toggleForm}
-          className="py-2.5 px-5 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          className="py-2.5 px-5 mb-2 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-white dark:bg-white dark:text-black dark:border-white dark:hover:text-black dark:hover:bg-[#f4f4f5]"
         >
           Add Task
         </button>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3 w-3/12">
                 Title
@@ -46,10 +43,7 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
           </thead>
           <tbody className="h-24 overflow-y">
             {tasks.map((task) => (
-              <tr
-                key={task.id}
-                className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600"
-              >
+              <tr key={task.id} className="bg-white dark:bg-[#18181B] ">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -72,7 +66,7 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex gap-3">
-                    <FaRegEdit size={20}  />
+                    <Link to="/update"><FaRegEdit size={20} /></Link>
                     <MdOutlineDelete size={22} />
                   </div>
                 </td>
