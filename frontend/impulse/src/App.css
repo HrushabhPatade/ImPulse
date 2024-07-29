@@ -1,0 +1,59 @@
+body {
+  overflow: hidden;
+  background-color: antiquewhite;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  padding: 0;
+}
+
+#maincontent {
+  margin-left: 128px;
+  margin-right: 128px;
+}
+
+#newForm{
+  margin-left: 128px;
+  margin-right: 128px;
+}
+
+#formButtons{
+  display: flex;
+  /* background-color: black; */
+  width: 380px;
+  
+  justify-content: space-between;
+}
+
+@media (max-width: 480px) {
+  #maincontent {
+    margin: 0;
+  }
+  #addButton{
+    margin-bottom: 5px;
+  }
+  #formButtons{
+    display: grid;
+    margin:auto;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+  #newForm{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 481px) and (min-width: 767px) {
+  #maincontent {
+    margin: 0;
+  }
+}

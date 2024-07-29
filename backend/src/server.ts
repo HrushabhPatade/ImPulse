@@ -20,7 +20,7 @@ app.use(
   })
 );
 
-app.use("/api/", tasksRoutes);
+app.use("/", tasksRoutes);
 
 app.listen(port, () => {
   console.log(`Server started at ${port}`);
