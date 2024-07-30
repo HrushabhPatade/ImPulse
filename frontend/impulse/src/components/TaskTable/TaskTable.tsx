@@ -30,7 +30,7 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
       try {
         const response = await axios.delete(`${serverUrl}/tasks/${_id}`);
         console.log(response);
-        fetchTaskTableData(); // Fetch updated task list after deletion
+        fetchTaskTableData(); //Refresh
       } catch (error) {
         console.error("Failed to delete task:", error);
       }

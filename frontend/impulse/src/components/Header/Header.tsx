@@ -1,7 +1,7 @@
 import React from "react";
 
 interface HeaderProps {
-  startTour: () => void; // Define the type of startTour
+  startTour: () => void; 
 }
 
 const Header: React.FC<HeaderProps> = ({ startTour }) => {

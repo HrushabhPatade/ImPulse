@@ -13,7 +13,7 @@ const Container = () => {
 
   const steps: Step[] = [
     {
-      target: "nav", // Targeting the whole navigation
+      target: "nav", 
       content: "Navbar of ImPulse!",
       placement: "bottom",
     },
@@ -65,7 +65,7 @@ const Container = () => {
             data.status === STATUS.FINISHED ||
             data.status === STATUS.SKIPPED
           ) {
-            setRunTour(false); // Stop tour after completion or skip
+            setRunTour(false); 
           }
         }}
         continuous={true}
@@ -77,16 +77,16 @@ const Container = () => {
         styles={{
           options: {
             zIndex: 10000,
-            primaryColor: "#3490dc", // Change this to your theme color
-            textColor: "#333", // Change this to match your theme
-            overlayColor: "rgba(0, 0, 0, 0.5)", // Adjust overlay color if needed
+            primaryColor: "#3490dc", 
+            textColor: "#333", 
+            overlayColor: "rgba(0, 0, 0, 0.5)", 
           },
           tooltip: {
-            backgroundColor: "#ffffff", // Tooltip background color
-            border: "1px solid #3490dc", // Tooltip border color
+            backgroundColor: "#ffffff",
+            border: "1px solid #3490dc", 
           },
           overlay: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)", // Overlay color
+            backgroundColor: "rgba(0, 0, 0, 0.5)", 
           },
         }}
       />

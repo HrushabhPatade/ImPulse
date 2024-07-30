@@ -10,7 +10,7 @@ const connectDb = async () => {
     );
   } catch (error) {
     console.log(error);
-    process.exit(1); // to terminate program
+    process.exit(1); 
   }
 };
 

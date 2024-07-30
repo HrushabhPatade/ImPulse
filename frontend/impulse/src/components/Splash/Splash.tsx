@@ -13,7 +13,7 @@ const SplashScreen = () => {
     });
 
     return () => {
-      // Clean up timers if the component unmounts
+      
       lineTimers.forEach((_, index) => clearTimeout(index));
     };
   }, []);

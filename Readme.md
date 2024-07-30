@@ -60,7 +60,3 @@ After starting the application, navigate to http://localhost:3000 to access the 
 ## License
 
 This project is licensed under the MIT License.
-
-```
-
-```

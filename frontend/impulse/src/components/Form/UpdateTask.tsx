@@ -42,7 +42,7 @@ const UpdateTask: React.FC = () => {
   return (
     <>
       <div className="flex flex-col min-h-screen">
-        <Header />
+        {/* <Header startTour={startTour}/> */}
         <main className="flex-grow">
           <div id="newForm">
             <br />
