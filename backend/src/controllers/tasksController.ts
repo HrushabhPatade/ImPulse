@@ -35,7 +35,7 @@ export const getAllTasks = async (
 ) => {
   console.log("GET method called for all tasks");
   try {
-    const allTasks = await tasksModel.find();
+    const allTasks = await tasksModel.find().sort({ createdAt: -1 });
     if (allTasks.length < 0) {
       res.status(404).send({ message: "No task found!" });
     } else {

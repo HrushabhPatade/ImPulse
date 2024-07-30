@@ -3,13 +3,43 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { ToggleFormProps } from "../Interface/types";
 import { Link } from "react-router-dom";
+import { TaskData } from "../Interface/types";
+import axios from "axios";
+import { serverUrl } from "../Helpers/Constants";
 
 const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
-  const tasks = [
-    { id: 1, title: "Task 1", desc: "Description 1", status: "In Progress" },
-    { id: 2, title: "Task 2", desc: "Description 2", status: "To-Do" },
-    { id: 3, title: "Task 3", desc: "Description 3", status: "Done" },
-  ];
+  const [tasks, setTasks] = React.useState<TaskData[]>([]);
+
+  const fetchTaskTableData = async () => {
+    try {
+      const url = `${serverUrl}/tasks`;
+      console.log("Requesting URL:", url);
+      const res = await axios(url);
+      console.log("Res : ", res);
+      setTasks(res.data);
+    } catch (error) {
+      console.error("Failed to fetch tasks:", error);
+    }
+  };
+
+  const deleteUrl = async (_id: string) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
+    if (confirmDelete) {
+      try {
+        const response = await axios.delete(`${serverUrl}/tasks/${_id}`);
+        console.log(response);
+        fetchTaskTableData(); // Fetch updated task list after deletion
+      } catch (error) {
+        console.error("Failed to delete task:", error);
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    fetchTaskTableData();
+  }, []);
 
   return (
     <div id="maincontent">
@@ -43,7 +73,7 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
           </thead>
           <tbody className="h-24 overflow-y">
             {tasks.map((task) => (
-              <tr key={task.id} className="bg-white dark:bg-[#18181B] ">
+              <tr key={task._id} className="bg-white dark:bg-[#18181B] ">
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
@@ -66,8 +96,13 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex gap-3">
-                    <Link to="/update"><FaRegEdit size={20} /></Link>
-                    <MdOutlineDelete size={22} />
+                    <Link to={`/update/${task._id}`}>
+                      <FaRegEdit size={20} />
+                    </Link>
+                    <MdOutlineDelete
+                      size={22}
+                      onClick={() => deleteUrl(task._id)}
+                    />
                   </div>
                 </td>
               </tr>

@@ -16,7 +16,7 @@ function App() {
       <Router>
       <Routes>
         <Route path="/" element={<Container />} />
-        <Route path="/update" element={<UpdateTask />} />
+        <Route path="/update/:id" element={<UpdateTask />} />
       </Routes>
     </Router>
     </>

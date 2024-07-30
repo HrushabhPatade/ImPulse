@@ -6,17 +6,20 @@ import { useLocation } from "react-router-dom";
 import UpdateTask from "../Form/UpdateTask";
 
 const Tasks: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!sessionStorage.getItem('splashShown'));
   const [showForm, setShowForm] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 4000); // 4 seconds
+    if (loading) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('splashShown', 'true');
+      }, 4000); 
 
     return () => clearTimeout(timer);
+    }
   }, []);
 
   const toggleForm = () => {
