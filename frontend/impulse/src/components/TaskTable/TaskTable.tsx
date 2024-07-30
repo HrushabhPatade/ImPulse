@@ -43,18 +43,20 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
 
   return (
     <div id="maincontent">
+      
       <div className="flex justify-between items-center">
+
         <h2 className="text-2xl font-bold mb-4 text-white">Tasks</h2>
         <button
           type="button"
           onClick={toggleForm}
-          className="py-2.5 px-5 mb-2 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-white dark:bg-white dark:text-black dark:border-white dark:hover:text-black dark:hover:bg-[#f4f4f5]"
+          className="add-task-button py-2.5 px-5 mb-2 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-white dark:bg-white dark:text-black dark:border-white dark:hover:text-black dark:hover:bg-[#f4f4f5]"
         >
           Add Task
         </button>
       </div>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <table className="task-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-400">
             <tr>
               <th scope="col" className=" px-6 py-3 w-3/12">
@@ -63,7 +65,7 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
               <th scope="col" className="px-6 py-3 w-6/12">
                 Description
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="updated-at px-6 py-3">
                 Updated At
               </th>
               <th scope="col" className="px-6 py-3">
@@ -106,12 +108,13 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex gap-3">
-                    <Link to={`/update/${task._id}`}>
+                    <Link to={`/update/${task._id}`} className="edit-icon">
                       <FaRegEdit size={20} />
                     </Link>
                     <MdOutlineDelete
                       size={22}
                       onClick={() => deleteUrl(task._id)}
+                      className="delete-icon"
                     />
                   </div>
                 </td>

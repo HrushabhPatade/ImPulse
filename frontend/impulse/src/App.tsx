@@ -7,7 +7,7 @@ import Container from "./components/Container/Container";
 import UpdateTask from "./components/Form/UpdateTask";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
     <>

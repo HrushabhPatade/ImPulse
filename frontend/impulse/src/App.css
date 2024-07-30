@@ -19,17 +19,14 @@ main {
   margin-right: 128px;
 }
 
-#newForm{
+#newForm {
   margin-left: 128px;
   margin-right: 128px;
 }
 
 .outlined-text {
-  text-shadow: 
-    -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000; 
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .text-colour-animation {
@@ -60,31 +57,77 @@ main {
   }
 }
 
-#formButtons{
+.waving:before {
+  content: attr(data-hover);
+}
+
+.waving {
+  animation-name: wave-animation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#formButtons {
   display: flex;
   /* background-color: black; */
   width: 380px;
-  
+
   justify-content: space-between;
+}
+
+#useGuide{
+  display: flex;
 }
 
 @media (max-width: 480px) {
   #maincontent {
     margin: 0;
   }
-  #addButton{
+  #addButton {
     margin-bottom: 5px;
   }
-  #formButtons{
+  #formButtons {
     display: grid;
-    margin:auto;
+    margin: auto;
     width: 200px;
     display: flex;
     flex-direction: column;
   }
-  #newForm{
+  #newForm {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  #useGuide{
+    display: none;
   }
 }
 
