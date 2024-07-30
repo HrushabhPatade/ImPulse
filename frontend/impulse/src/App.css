@@ -24,6 +24,42 @@ main {
   margin-right: 128px;
 }
 
+.outlined-text {
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+.text-colour-animation {
+  font-weight: bold;
+  color: transparent;
+  animation: effect 2s linear infinite;
+}
+@keyframes effect {
+  0% {
+    background: #9bb8e9;
+    -webkit-background-clip: text;
+  }
+  25% {
+    background: #ff9999;
+    -webkit-background-clip: text;
+  }
+  50% {
+    background: #fee501;
+    -webkit-background-clip: text;
+  }
+  75% {
+    background: #63ff73;
+    -webkit-background-clip: text;
+  }
+  100% {
+    background: #9bb8e9;
+    -webkit-background-clip: text;
+  }
+}
+
 #formButtons{
   display: flex;
   /* background-color: black; */

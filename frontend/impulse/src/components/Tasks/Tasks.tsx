@@ -16,7 +16,7 @@ const Tasks: React.FC = () => {
       const timer = setTimeout(() => {
         setLoading(false);
         sessionStorage.setItem('splashShown', 'true');
-      }, 4000); 
+      }, 10000); 
 
     return () => clearTimeout(timer);
     }

@@ -57,11 +57,14 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-400">
             <tr>
-              <th scope="col" className="px-6 py-3 w-3/12">
+              <th scope="col" className=" px-6 py-3 w-3/12">
                 Title
               </th>
               <th scope="col" className="px-6 py-3 w-6/12">
-                Desc
+                Description
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Updated At
               </th>
               <th scope="col" className="px-6 py-3">
                 Status
@@ -81,6 +84,13 @@ const TaskTable: React.FC<ToggleFormProps> = ({ toggleForm }) => {
                   {task.title}
                 </th>
                 <td className="px-6 py-4">{task.desc}</td>
+                <td className="px-6 py-4">
+                  {task.createdAt !== task.updatedAt ? (
+                    new Date(task.updatedAt).toLocaleString()
+                  ) : (
+                    "Not updated"
+                  )}
+                </td>
                 <td className="px-6 py-4">
                   <div
                     className={`inline-block rounded-full px-4 py-2 text-xs font-semibold ${
