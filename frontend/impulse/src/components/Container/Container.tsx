@@ -14,19 +14,18 @@ const Container = () => {
   const steps: Step[] = [
     {
       target: "nav", // Targeting the whole navigation
-      content:
-        "This is the header of the application where you can access various features.",
+      content: "Navbar of ImPulse!",
       placement: "bottom",
+    },
+    {
+      target: ".task-table",
+      content: "This table displays all a task and it's status.",
+      placement: "top",
     },
     {
       target: ".add-task-button",
       content: "Click here to add a new task.",
       placement: "bottom",
-    },
-    {
-      target: ".task-table",
-      content: "Here is the list of tasks.",
-      placement: "top",
     },
     {
       target: ".edit-icon",
@@ -45,7 +44,7 @@ const Container = () => {
     },
     {
       target: ".footer",
-      content: "This is the footer with contact information.",
+      content: "This is the footer with contact my information.",
       placement: "top",
     },
   ];
@@ -78,16 +77,16 @@ const Container = () => {
         styles={{
           options: {
             zIndex: 10000,
-            primaryColor: '#3490dc', // Change this to your theme color
-            textColor: '#333', // Change this to match your theme
-            overlayColor: 'rgba(0, 0, 0, 0.5)', // Adjust overlay color if needed
+            primaryColor: "#3490dc", // Change this to your theme color
+            textColor: "#333", // Change this to match your theme
+            overlayColor: "rgba(0, 0, 0, 0.5)", // Adjust overlay color if needed
           },
           tooltip: {
-            backgroundColor: '#ffffff', // Tooltip background color
-            border: '1px solid #3490dc', // Tooltip border color
+            backgroundColor: "#ffffff", // Tooltip background color
+            border: "1px solid #3490dc", // Tooltip border color
           },
           overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)', // Overlay color
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Overlay color
           },
         }}
       />
