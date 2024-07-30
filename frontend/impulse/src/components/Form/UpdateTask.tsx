@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { serverUrl } from "../Helpers/Constants";
-import Header from "../Header/Header";
+// import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 const UpdateTask: React.FC = () => {
